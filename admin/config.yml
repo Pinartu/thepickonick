@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  [cite_start]branch: main # Güncellenecek dal (varsayılan: master) [cite: 128]
+
+[cite_start]media_folder: "images/uploads" # Yüklenen medya dosyaları burada saklanacak [cite: 141]
+[cite_start]public_folder: "/images/uploads" # Medya dosyalarının genel yolu [cite: 148]
+
+collections:
+  - name: "blog" # Yönlendirmelerde kullanılır, ör. /admin/collections/blog [cite: 168]
+    [cite_start]label: "Blog" # Kullanıcı arayüzünde kullanılır [cite: 169]
+    [cite_start]folder: "_posts/blog" # Belgelerin saklandığı klasör [cite: 170]
+    [cite_start]create: true # Kullanıcıların yeni belgeler oluşturmasına izin ver [cite: 170]
+    [cite_start]slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Dosya adı şablonu [cite: 171]
+    [cite_start]fields: # Her belge için alanlar [cite: 171]
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Social Media", "Product Review", "Technology"] }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
