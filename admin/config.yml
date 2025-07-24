@@ -1,22 +1,20 @@
-# En üst düzey anahtar kelimeler satırın başında başlamalıdır
 backend:
   name: git-gateway
-  branch: main # Güncellenecek dal (varsayılan: master)
+  branch: main
 
-# Bu satır da satırın başında başlamalıdır
-media_folder: "images/uploads" # Yüklenen medya dosyaları burada saklanacak
-public_folder: "/images/uploads" # Medya dosyalarının genel yolu
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-# Bu satır da satırın başında başlamalıdır
 collections:
-  - name: "blog" # Yönlendirmelerde kullanılır, ör. /admin/collections/blog
-    label: "Blog" # Kullanıcı arayüzünde kullanılır
-    folder: "_posts/blog" # Belgelerin saklandığı klasör
-    create: true # Kullanıcıların yeni belgeler oluşturmasına izin ver
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Dosya adı şablonu
-    fields: # Her belge için alanlar
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "_posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Category", name: "category", widget: "select", options: ["Social Media", "Product Review", "Technology"] }
-      - { label: "Featured Image", name: "thumbnail", widget: "image" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["SOCIAL MEDIA", "PRODUCT REVIEW", "TECHNOLOGY"] }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
       - { label: "Body", name: "body", widget: "markdown" }
