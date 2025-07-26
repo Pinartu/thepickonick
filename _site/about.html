@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #f8f8f8;
+        }
+        .font-serif-display {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="/" class="text-2xl font-serif-display font-bold text-gray-900">Thepickonic</a>
+        <nav class="hidden md:flex space-x-8">
+            <a href="/" class="text-gray-600 hover:text-gray-900 transition duration-300">Home</a>
+            <a href="/about.html" class="text-gray-600 hover:text-gray-900 transition duration-300">About</a>
+            <a href="/blog.html" class="text-gray-600 hover:text-gray-900 transition duration-300">Blog</a>
+            <a href="/contact.html" class="text-gray-600 hover:text-gray-900 transition duration-300">Contact</a>
+        </nav>
+        <a href="#subscribe" class="hidden md:block bg-gray-800 text-white px-5 py-2 rounded-full hover:bg-gray-900 transition duration-300">Subscribe</a>
+        <button class="md:hidden text-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
+        </button>
+    </div>
+</header>
+
+    <main>
+        <div class="container mx-auto px-6 py-16 md:py-24">
+  <h1 class="font-serif-display text-4xl font-bold text-center mb-8">About Me</h1>
+  <div class="max-w-3xl mx-auto text-lg text-gray-700 leading-relaxed">
+    <p class="mb-6">
+      Welcome to Thepickonic! My name is Piky and this is my corner of the internet where I explore the latest in technology, social media trends, and honest product reviews.
+    </p>
+    <p class="mb-6">
+      My passion is to dive deep into how technology shapes our lives and to provide current and unbiased perspectives. Whether you're a tech enthusiast or just curious, you'll find something to spark your interest.
+    </p>
+    <p>
+      Thank you for stopping by!
+    </p>
+  </div>
+</div>
+
+    </main>
+
+    <footer class="bg-white py-8">
+    <div class="container mx-auto px-6 text-center text-gray-600">
+        <div class="flex justify-center space-x-6 mb-4">
+            <a href="#" class="hover:text-gray-900">Twitter</a>
+            <a href="#" class="hover:text-gray-900">Instagram</a>
+            <a href="#" class="hover:text-gray-900">LinkedIn</a>
+        </div>
+        <p>&copy; 2025 Thepickonic. All rights reserved.</p>
+    </div>
+</footer>
+
+   <script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

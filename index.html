@@ -1,144 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thepickonic | Tech and Trends Blog</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: #f8f8f8;
-        }
-        .font-serif-display {
-            font-family: 'Playfair Display', serif;
-        }
-    </style>
-</head>
-<body class="text-gray-800">
+---
+layout: default
+title: Thepickonic | Tech and Trends Blog
+---
 
-    <!-- Header / Navigation -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" class="text-2xl font-serif-display font-bold text-gray-900">Thepickonic</a>
-            <nav class="hidden md:flex space-x-8">
-                <a href="/" class="text-gray-600 hover:text-gray-900 transition duration-300">Home</a>
-                <a href="/about" class="text-gray-600 hover:text-gray-900 transition duration-300">About</a>
-                <a href="/blog" class="text-gray-600 hover:text-gray-900 transition duration-300">Blog</a>
-                <a href="/contact" class="text-gray-600 hover:text-gray-900 transition duration-300">Contact</a>
-            </nav>
-            <a href="#subscribe" class="hidden md:block bg-gray-800 text-white px-5 py-2 rounded-full hover:bg-gray-900 transition duration-300">Subscribe</a>
-            <button class="md:hidden text-gray-800">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" /></svg>
-            </button>
-        </div>
-    </header>
+<section class="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center text-white">
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1974&auto=format&fit=crop');"></div>
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 px-4">
+        <h1 class="font-serif-display text-5xl md:text-7xl font-bold leading-tight">Discover Trends, Understand Tech</h1>
+        <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">A current and unbiased perspective on social media, technology, and product reviews.</p>
+        <a href="#featured-posts" class="mt-8 inline-block bg-white text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-200 transition duration-300">Read The Posts</a>
+    </div>
+</section>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="relative h-[70vh] min-h-[500px] flex items-center justify-center text-center text-white">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1974&auto=format&fit=crop');"></div>
-            <div class="absolute inset-0 bg-black/50"></div>
-            <div class="relative z-10 px-4">
-                <h1 class="font-serif-display text-5xl md:text-7xl font-bold leading-tight">Discover Trends, Understand Tech</h1>
-                <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">A current and unbiased perspective on social media, technology, and product reviews.</p>
-                <a href="#featured-posts" class="mt-8 inline-block bg-white text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-200 transition duration-300">Read The Posts</a>
-            </div>
-        </section>
+<section id="featured-posts" class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-6">
+        <h2 class="font-serif-display text-4xl font-bold text-center mb-12">Featured Posts</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        <!-- Featured Posts -->
-        <section id="featured-posts" class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <h2 class="font-serif-display text-4xl font-bold text-center mb-12">Featured Posts</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    
-                    <!-- Blog Post Card 1: Social Media -->
-                    <div class="group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-500">
-                        <div class="overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1554177255-61502b352de3?q=80&w=2070&auto=format&fit=crop" alt="A person holding a smartphone with a stylish blurred background" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-500 mb-2">SOCIAL MEDIA</p>
-                            <h3 class="font-serif-display text-2xl font-bold mb-3">2025 Social Media Trends</h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">From short-form videos to AI-powered content, the latest trends shaping the future of social media...</p>
-                            <a href="#" class="font-bold text-gray-800 hover:text-black transition duration-300">Read More &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post Card 2: Product Review -->
-                    <div class="group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-500">
-                        <div class="overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop" alt="High-end headphones on a clean background" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-500 mb-2">PRODUCT REVIEW</p>
-                            <h3 class="font-serif-display text-2xl font-bold mb-3">The X-Pro Headphones: Worth It?</h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">We tested the newest premium headphones on the market. Its features, sound quality, and a comparison with its competitors are in this article.</p>
-                            <a href="#" class="font-bold text-gray-800 hover:text-black transition duration-300">Read More &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- Blog Post Card 3: Technology -->
-                    <div class="group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-500">
-                        <div class="overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=2070&auto=format&fit=crop" alt="Close-up of code on a laptop screen" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-gray-500 mb-2">TECHNOLOGY</p>
-                            <h3 class="font-serif-display text-2xl font-bold mb-3">The Rise of AI in Development</h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">From smart assistants to augmented reality, discover how artificial intelligence is transforming our daily digital lives.</p>
-                            <a href="#" class="font-bold text-gray-800 hover:text-black transition duration-300">Read More &rarr;</a>
-                        </div>
-                    </div>
-
+            {% assign featured_posts = site.posts | where: "featured", true | slice: 0, 3 %}
+            {% for post in featured_posts %}
+            <div class="group overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-500">
+                <div class="overflow-hidden">
+                    <img src="{{ post.thumbnail | relative_url }}" alt="{{ post.title }}" class="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 mb-2">{{ post.category | upcase }}</p>
+                    <h3 class="font-serif-display text-2xl font-bold mb-3">{{ post.title }}</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-3">{{ post.excerpt }}</p>
+                    <a href="{{ post.url | relative_url }}" class="font-bold text-gray-800 hover:text-black transition duration-300">Read More &rarr;</a>
                 </div>
             </div>
-        </section>
+            {% endfor %}
 
-        <!-- Subscription Section -->
-        <section id="subscribe" class="bg-gray-800 text-white py-16">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="font-serif-display text-3xl font-bold mb-4">Don't Miss Out</h2>
-                <p class="max-w-xl mx-auto mb-8">Be the first to know about my latest posts, exclusive content, and announcements. Subscribe to my newsletter.</p>
-                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-                    <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
-                    <button type="submit" class="bg-white text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-200 transition duration-300">Subscribe</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-white py-8">
-        <div class="container mx-auto px-6 text-center text-gray-600">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="#" class="hover:text-gray-900">Twitter</a>
-                <a href="#" class="hover:text-gray-900">Instagram</a>
-                <a href="#" class="hover:text-gray-900">LinkedIn</a>
-            </div>
-            <p>&copy; 2024 Thepickonic. All rights reserved.</p>
         </div>
-    </footer>
-   <script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", (user) => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
-      }
-    });
-  }
-</script>
-    
-</body>
-</html>
+    </div>
+</section>
+
+<section id="subscribe" class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="font-serif-display text-3xl font-bold mb-4">Don't Miss Out</h2>
+        <p class="max-w-xl mx-auto mb-8">Be the first to know about my latest posts, exclusive content, and announcements. Subscribe to my newsletter.</p>
+        <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+            <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white" required>
+            <button type="submit" class="bg-white text-gray-900 font-bold px-8 py-3 rounded-full hover:bg-gray-200 transition duration-300">Subscribe</button>
+        </form>
+    </div>
+</section>

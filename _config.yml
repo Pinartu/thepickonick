@@ -1,0 +1,11 @@
+# Site Ayarları
+title: Thepickonic
+description: "A current and unbiased perspective on social media, technology, and product reviews."
+url: "https://your-domain.com" # Siteniz canlıya geçtiğinde burayı kendi alan adınızla değiştirin.
+baseurl: "" # Eğer siteniz bir alt klasörde yayınlanmayacaksa boş bırakın.
+
+# Jekyll Ayarları
+permalink: /:categories/:year/:month/:day/:title.html
+
+# Markdown İşleyici
+markdown: kramdown
