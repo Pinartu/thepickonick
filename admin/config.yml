@@ -1,98 +1,80 @@
-b# ===================================================================
-# DECAP CMS YAPILANDIRMASI - Thepickonick Projesi için
+# ===================================================================
+# DECAP CMS CONFIGURATION
 # ===================================================================
 
 # -------------------------------------------------------------------
-# ARKA UÇ (BACKEND) AYARLARI
+# BACKEND CONFIGURATION
 # -------------------------------------------------------------------
-# Bu bölüm, CMS'in içeriği nereye kaydedeceğini ve kimlik doğrulamayı
-# nasıl yapacağını belirler. [cite: 170, 171]
+# This section defines where the CMS will save content and how it will
+# handle authentication.
 # -------------------------------------------------------------------
 backend:
-  # 'git-gateway', Netlify'ın kimlik doğrulama (Identity) hizmetiyle
-  # GitHub deponuza erişimini sağlar. [cite: 178, 531] Bu sayede, CMS'e giren
-  # her kullanıcının GitHub hesabı olmasına gerek kalmaz.
+  # 'git-gateway' connects to your GitHub repo via Netlify's Identity service.
+  # This allows users to log in to the CMS without needing a GitHub account.
   name: git-gateway
-  # 'branch', içeriklerin GitHub deponuzun hangi dalına (branch)
-  # kaydedileceğini belirtir. Genellikle 'main' veya 'master' kullanılır. [cite: 175, 532]
+  # The branch where content will be saved in your GitHub repository.
   branch: main
 
 # -------------------------------------------------------------------
-# MEDYA (GÖRSEL vb.) DOSYALARININ YÖNETİMİ
+# MEDIA FILE MANAGEMENT
 # -------------------------------------------------------------------
-# Bu ayarlar, CMS üzerinden yüklenen görsellerin veya diğer dosyaların
-# depoda nereye kaydedileceğini ve sitede nasıl gösterileceğini belirler. [cite: 181]
+# These settings determine where uploaded media files are stored in the
+# repository and how they are accessed on the live site.
 # -------------------------------------------------------------------
-# 'media_folder', CMS üzerinden yüklenen dosyaların GitHub deponuzda
-# hangi klasöre kaydedileceğini belirtir. [cite: 188]
 media_folder: "images/uploads"
-
-# 'public_folder', yüklenen medyaların web sitenizde hangi yoldan
-# erişilebilir olacağını belirtir. [cite: 196] Örneğin, buraya yüklenen bir görselin
-# linki '/images/uploads/gorsel.jpg' şeklinde olacaktır.
 public_folder: "/images/uploads"
 
 # -------------------------------------------------------------------
-# KOLEKSİYONLAR (COLLECTIONS)
+# COLLECTIONS
 # -------------------------------------------------------------------
-# Burası CMS'in en önemli kısmıdır. Sitenizdeki farklı içerik türlerini
-# burada tanımlarsınız. [cite: 204, 205] Örneğin "Blog Yazıları", "Hakkımızda Sayfası" vb.
+# This is the core of the CMS. It defines the different content types
+# for your site, such as "Blog Posts" or "Pages".
 # -------------------------------------------------------------------
 collections:
-  # --- KOLEKSİYON 1: BLOG YAZILARI ---
-  # Bu koleksiyon, sitenizdeki tüm blog yazılarını yönetmek içindir.
-  # "Folder Collection" tipindedir, yani tek bir klasördeki çok sayıda
-  # benzer dosyayı yönetir.
+  # --- COLLECTION 1: BLOG POSTS ---
   - name: "blog"
-    [cite_start]label: "Blog Yazıları" # CMS arayüzünde bu koleksiyonun görünecek adı. [cite: 216]
-    [cite_start]folder: "_posts" # Blog yazılarının depoda saklanacağı klasör. [cite: 217] Jekyll için bu klasörün adı '_posts' olmalıdır.
-    [cite_start]create: true # Kullanıcıların bu koleksiyonda yeni yazı oluşturmasına izin verir. [cite: 217]
+    label: "Blog Posts" # The display name for this collection in the UI.
+    folder: "_posts" # The path to the folder where documents are stored. For Jekyll, this must be '_posts'.
+    create: true # Allows users to create new documents in this collection.
     
-    # 'slug', yeni bir yazı oluşturulduğunda dosya adının nasıl
-    # olacağını belirleyen bir şablondur. [cite: 218] Jekyll, blog yazıları için
-    # 'YIL-AY-GÜN-başlık' formatını zorunlu kılar. [cite: 566]
+    # The filename template for new documents. Jekyll requires this format for posts.
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     
-    # 'editor', bu koleksiyona özel editör ayarları yapmanızı sağlar.
-    # Jekyll, 'Liquid' adında bir şablonlama dili kullandığı için Decap CMS'in
-    # canlı önizleme özelliği düzgün çalışmaz. Bu nedenle kapatıyoruz. [cite: 568, 569]
+    # Editor-specific settings for this collection.
+    # Preview is disabled for compatibility with Jekyll's Liquid templating.
     editor:
       preview: false
       
-    # 'fields', her bir blog yazısının hangi alanlardan oluşacağını tanımlar.
-    # Bu alanlar, CMS'deki editör ekranında bir form olarak görünür. [cite: 218]
+    # Defines the fields for each document in this collection.
+    # These appear as a form in the editor UI.
     fields:
-      - { label: "Yazi Basligi", name: "title", widget: "string" }
-      - { label: "Yayinlanma Tarihi", name: "date", widget: "datetime" }
-      - { label: "Kategori", name: "category", widget: "select", options: ["SOCIAL MEDIA", "PRODUCT REVIEW", "TECHNOLOGY"] }
-      - { label: "Öne Çikan Görsel", name: "thumbnail", widget: "image" }
-      - { label: "Özet (Excerpt)", name: "excerpt", widget: "text", hint: "Yazının ana sayfada görünecek kısa özeti." }
-      - { label: "Yazi İçeriği", name: "body", widget: "markdown" }
-# ... fields bölümünün diğer alanları ...
-     - { label: "Öne Cikan Yazi?", name: "featured", widget: "boolean", default: false, hint: "Bu kutucuğu işaretlerseniz, yazı ana sayfadaki 'Öne Çıkan Gönderiler' bölümünde görünür." }
-     - { label: "Yazi İçeriği", name: "body", widget: "markdown" }
-# ...
-  # --- KOLEKSİYON 2: SAYFALAR ---
-  # Bu koleksiyon, "Hakkımızda", "İletişim" gibi tekil ve sabit sayfaları
-  # yönetmek içindir. "File Collection" tipindedir. 
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "select", options: ["SOCIAL MEDIA", "PRODUCT REVIEW", "TECHNOLOGY"] }
+      - { label: "Featured Image", name: "thumbnail", widget: "image" }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "A short summary of the post that will appear on the main page." }
+      - { label: "Featured Post?", name: "featured", widget: "boolean", default: false, hint: "Check this box to feature this post on the homepage." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # --- COLLECTION 2: PAGES ---
+  # This collection manages single, static pages like "About" or "Contact".
   - name: "pages"
-    label: "Sabit Sayfalar" # CMS arayüzünde görünecek ad.
+    label: "Pages" # The display name for this collection in the UI.
     
-    # 'files' koleksiyonu, klasördeki tüm dosyaları değil, sadece
-    # belirttiğiniz spesifik dosyaları düzenlemenizi sağlar. [cite: 679]
+    # 'files' collections let you edit specific, individual files.
     files:
-      - label: "Hakkımızda Sayfası"
-        name: "about" # Bu sayfanın CMS'teki kimliği.
-        file: "about.md" # Düzenlenecek olan dosyanın tam yolu.
+      - label: "About Page"
+        name: "about"
+        file: "about.md"
         fields:
-          - { label: "Sayfa Başlığı", name: "title", widget: "string" }
-          - { label: "Sayfa İçeriği", name: "body", widget: "markdown" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Page Content", name: "body", widget: "markdown" }
           
-      - label: "İletişim Sayfası"
+      - label: "Contact Page"
         name: "contact"
-        file: "contact.md" # Projenizde bu dosyayı oluşturmanız gerekir.
+        file: "contact.md"
         fields:
-          - { label: "Sayfa Başlığı", name: "title", widget: "string" }
-          - { label: "Giriş Metni", name: "intro_text", widget: "markdown" }
-          - { label: "E-posta Adresi", name: "email", widget: "string" }
-          - { label: "Telefon Numarası", name: "phone", widget: "string" }
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Intro Text", name: "intro_text", widget: "markdown" }
+          - { label: "Email Address", name: "email", widget: "string" }
+          - { label: "Phone Number", name: "phone", widget: "string" }
